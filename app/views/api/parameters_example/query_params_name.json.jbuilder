@@ -1,1 +1,1 @@
-json.name @name
+json.name @message
