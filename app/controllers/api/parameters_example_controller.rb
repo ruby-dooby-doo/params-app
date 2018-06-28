@@ -7,10 +7,9 @@ class Api::ParametersExampleController < ApplicationController
   end
 
   def query_params_name
-    if params["the_name"][0] == "A" || params["the_name"][0] == "a"
+    @message = params["the_name"].upcase
+    if @message[0] == "A"
       @message = "Your name begins with A"
-    else
-      @message = params["the_name"].upcase
     end
     render "query_params_name.json.jbuilder"
   end
