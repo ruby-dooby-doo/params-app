@@ -5,4 +5,9 @@ class Api::ParametersExampleController < ApplicationController
 
     render "query_params_view.json.jbuilder"
   end
+
+  def query_params_name
+    @name = params["the_name"].upcase
+    render "query_params_name.json.jbuilder"
+  end
 end
