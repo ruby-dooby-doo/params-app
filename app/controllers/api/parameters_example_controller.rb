@@ -15,10 +15,12 @@ class Api::ParametersExampleController < ApplicationController
   end
 
   def query_game
+    user_input = params["user_guess"].to_i
+    winning_number = 36
     # if the user guesses correctly, tell them good job
-    if params["user_guess"].to_i == 36
+    if user_input == winning_number
       @message = "Congratulations, you won!"
-    elsif params["user_guess"].to_i < 36
+    elsif user_input < winning_number
     # if they are too low, tell them to guess higher
       @message = "You did terribly, guess higher next time dummy"
     else
