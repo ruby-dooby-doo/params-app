@@ -34,4 +34,20 @@ class Api::ParametersExampleController < ApplicationController
     @message = params["first_name"]
     render "segment_param.json.jbuilder"
   end
+
+  def segment_guessing_game
+    user_input = params["guess"].to_i
+    winning_number = 36
+    # if the user guesses correctly, tell them good job
+    if user_input == winning_number
+      @message = "Congratulations, you won!"
+    elsif user_input < winning_number
+    # if they are too low, tell them to guess higher
+      @message = "You did terribly, guess higher next time dummy"
+    else
+      # if they guess too high, tell them to guess lower
+      @message = "You did terribly, guess lower next time dummy"
+    end
+    render "segment_game.json.jbuilder"
+  end
 end
