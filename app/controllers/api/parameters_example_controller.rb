@@ -27,7 +27,11 @@ class Api::ParametersExampleController < ApplicationController
       # if they guess too high, tell them to guess lower
       @message = "You did terribly, guess lower next time dummy"
     end
-
     render "query_game_view.json.jbuilder"
+  end
+
+  def segment_param
+    @message = params["first_name"]
+    render "segment_param.json.jbuilder"
   end
 end
